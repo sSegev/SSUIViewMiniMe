@@ -9,7 +9,7 @@ A miniature replica of your UIView with an indicator of your location.
 
 Overview
 --------
-SSUIViewMiniMe takes your UIView and creates a small version of it with an indicator of your location on the UIView.
+SSUIViewMiniMe takes your UIView and creates a small version of it with an indicator of your location on the original UIView.
 
 The example showen in the GIF above is in the `SSUIViewMiniMeDemo/` directory:
 
@@ -18,7 +18,8 @@ Features
 - The MiniMe UIView is responsive to touch. Dragging your finger on it will move the actual UIScrollView
 - The MiniMe UIView indicator will track the current movment in the UIScrollView
 - The MiniMe UIView will draw on it self any changes made in the UIScrollView
-- All those features are shown in the GIF below (might take a few seconds to load)
+
+All those features are shown in the GIF above (might take a few seconds to load)
 
 Requirements
 ------------
@@ -29,6 +30,12 @@ Screenshot (The GIF above will explain a lot more)
 <p align="center">
 <img src="https://f.cloud.github.com/assets/3911009/1750212/280acf4c-657b-11e3-9efb-b9ec8ce3f113.png">
 </p>
+
+Why?
+---
+In one of my projects I was asked to create a simple UI for seats selection in a movie theater. 
+With the iPhone screen relatively small I had to find a way to zoom in on a view and still let the user know about his 
+current location. I ended up using something much simpler for the seat selection project and found a lot of other uses for SSUIViewMiniMe class.
 
 Installation
 ------------
@@ -52,9 +59,44 @@ If you want to use the delegate methods (optional) you will also need to add
 miniMeView.delegate = self;
 ```
 
-In one of my projects I was asked to create a simple UI for seats selection in a movie theater. 
-With the iPhone screen relatively small I had to find a way to zoom in on a view and still let the user know about his 
-current location.
+SSUIViewMiniMeDelegate Protocols
+-
+
+```Objective-C
+- (void)enlargedView:(SSUIViewMiniMe *)enlargedView willBeginDragging:(UIScrollView *)scrollView;
+```
+Tells the delegate when scrolling is about to start.
+
+-
+
+```Objective-C
+- (void)enlargedView:(SSUIViewMiniMe *)enlargedView didScroll:(UIScrollView *)scrollView;
+```
+Tells the delegate when the user scrolls the content view.
+
+-
+
+```Objective-C
+- (void)enlargedView:(SSUIViewMiniMe *)enlargedView didEndDragging:(UIScrollView *)scrollView;
+```
+Tells the delegate when dragging ended.
+
+
+-
+
+```Objective-C
+- (void)enlargedView:(SSUIViewMiniMe *)enlargedView willBeginDecelerating:(UIScrollView *)scrollView;
+```
+
+Tells the delegate that scrolling movement is starting to decelerate.
+
+-
+
+```Objective-C
+- (void)enlargedView:(SSUIViewMiniMe *)enlargedView didEndDecelerating:(UIScrollView *)scrollView;
+```
+Tells the delegate that the scroll view has ended decelerating the scrolling movement.
+
 
 ToDo:
 -----
