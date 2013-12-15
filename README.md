@@ -27,7 +27,7 @@ Requirements
 Screenshot (The GIF above will explain a lot more)
 -----------
 <p align="center">
-![Screenshot0](https://f.cloud.github.com/assets/3911009/1750212/280acf4c-657b-11e3-9efb-b9ec8ce3f113.png)
+<img src="https://f.cloud.github.com/assets/3911009/1750212/280acf4c-657b-11e3-9efb-b9ec8ce3f113.png">
 </p>
 
 Installation
