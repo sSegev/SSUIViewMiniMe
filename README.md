@@ -101,7 +101,8 @@ Tells the delegate that the scroll view has ended decelerating the scrolling mov
 ToDo:
 -----
 1. CocoPods
-2. Other stuff
+2. Rotation
+3. Other stuff
 
 The MIT License (MIT)
 
