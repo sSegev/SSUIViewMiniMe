@@ -11,7 +11,7 @@ Overview
 --------
 SSUIViewMiniMe takes your UIView and creates a small version of it with an indicator of your location on the original UIView.
 
-The example showen in the GIF above is in the `SSUIViewMiniMeDemo/` directory:
+The example shown in the GIF above is in the `SSUIViewMiniMeDemo/` directory:
 
 Features
 --------
