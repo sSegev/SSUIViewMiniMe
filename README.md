@@ -104,6 +104,7 @@ ToDo:
 2. Rotation
 3. Other stuff
 
-GNU GENERAL PUBLIC LICENSE Version 2, June 1991
+The MIT License (MIT)
 
-Copyright (c) 2013 sSegev
+Copyright (c) sSegev
+
