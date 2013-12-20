@@ -17,6 +17,7 @@
     UIView *miniMe;
     UIImageView *miniMeImageView;
     UIView *miniMeIndicator;
+    NSInteger viewRatio;
 }
 
 -(SSUIViewMiniMe *)initWithView:(UIView *)viewToMap withRatio:(NSInteger)ratio
@@ -26,9 +27,9 @@
     if (self)
     {
         zoomedView = viewToMap;
-        _ratio = ratio;
+        viewRatio = ratio;
         [self setBackgroundColor:[UIColor blackColor]];
-        self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 320, HEIGHT)];
+        self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT)];
         self.scrollView.contentSize = CGSizeMake(viewToMap.bounds.size.width, viewToMap.bounds.size.height);
         self.scrollView.delegate = self;
         self.scrollView.minimumZoomScale = 1;
@@ -48,7 +49,7 @@
         
         [self addSubview:self.scrollView];
         
-        miniMe = [[UIView alloc]initWithFrame:CGRectMake(10, 10, viewToMap.frame.size.width/_ratio, viewToMap.frame.size.height/_ratio)];
+        miniMe = [[UIView alloc]initWithFrame:CGRectMake(10, 10, viewToMap.frame.size.width/viewRatio, viewToMap.frame.size.height/viewRatio)];
         miniMe.clipsToBounds = YES;
         miniMeImageView = [[UIImageView alloc]initWithImage:[self captureScreen:viewToMap]];
         miniMeImageView.frame = CGRectMake(0, 0, miniMe.frame.size.width, miniMe.frame.size.height);
@@ -58,8 +59,8 @@
         [self addSubview:miniMe];
         
         miniMeIndicator = [[UIView alloc]initWithFrame:CGRectMake(
-                                                                  self.scrollView.contentOffset.x/_ratio/self.scrollView.zoomScale,
-                                                                  self.scrollView.contentOffset.y/_ratio/self.scrollView.zoomScale,
+                                                                  self.scrollView.contentOffset.x/viewRatio/self.scrollView.zoomScale,
+                                                                  self.scrollView.contentOffset.y/viewRatio/self.scrollView.zoomScale,
                                                                   miniMe.frame.size.width/self.scrollView.zoomScale,
                                                                   miniMe.frame.size.height/self.scrollView.zoomScale)];
         
@@ -105,7 +106,7 @@
     
     miniMeIndicator.frame = CGRectMake(touchPoint.x, touchPoint.y, miniMe.frame.size.width/self.scrollView.zoomScale, miniMe.frame.size.height/self.scrollView.zoomScale);
     
-    [self.scrollView setContentOffset:CGPointMake(touchPoint.x*_ratio*self.scrollView.zoomScale, touchPoint.y*_ratio*self.scrollView.zoomScale) animated:NO];
+    [self.scrollView setContentOffset:CGPointMake(touchPoint.x*viewRatio*self.scrollView.zoomScale, touchPoint.y*viewRatio*self.scrollView.zoomScale) animated:NO];
 }
 
 - (void)tapAction:(UITapGestureRecognizer *)sender
@@ -156,8 +157,8 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     miniMeIndicator.frame =
-    CGRectMake(self.scrollView.contentOffset.x/_ratio/self.scrollView.zoomScale,
-               self.scrollView.contentOffset.y/_ratio/self.scrollView.zoomScale,
+    CGRectMake(self.scrollView.contentOffset.x/viewRatio/self.scrollView.zoomScale,
+               self.scrollView.contentOffset.y/viewRatio/self.scrollView.zoomScale,
                miniMeIndicator.frame.size.width,
                miniMeIndicator.frame.size.height);
 
