@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     UIView *tempView = [[UIView alloc]initWithFrame:self.view.frame];
     UIImageView *imgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"BigPic"]];
     imgView.frame = tempView.frame;
@@ -57,7 +58,6 @@
     ssMiniMeView = [[SSUIViewMiniMe alloc]initWithView:tempView withRatio:4];
     ssMiniMeView.delegate = self;
     [self.view addSubview:ssMiniMeView];
-    
 }
 
 - (void)aMethod:(UIButton *)sender
