@@ -37,9 +37,19 @@ In one of my projects I was asked to create a simple UI for seats selection in a
 With the iPhone screen relatively small I had to find a way to zoom in on a view and still let the user know about his 
 current location. I ended up using something much simpler for the seat selection project and found a lot of other uses for SSUIViewMiniMe class.
 
-Installation
-------------
-Just drag SSUIViewMiniMe.h & m to your project. (Cocopods will be added some time soon)
+Installation With CocoaPods
+---------------------------
+
+Edit your Podfile and add `SSUIViewMiniMe`:
+
+``` bash
+pod 'SSUIViewMiniMe'
+```
+
+Manual Installation
+------------------
+
+Just drag SSUIViewMiniMe.h & m to your project.
 
 How to use
 ----------
@@ -100,9 +110,8 @@ Tells the delegate that the scroll view has ended decelerating the scrolling mov
 
 ToDo:
 -----
-1. CocoPods
-2. Rotation
-3. Other stuff
+1. Rotation
+2. Other stuff
 
 The MIT License (MIT)
 
