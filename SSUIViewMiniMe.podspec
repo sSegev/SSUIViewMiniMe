@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SSUIViewMiniMe"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "A miniature replica of your UIView with an indicator of your location."
 
   s.description  = <<-DESC
