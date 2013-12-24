@@ -24,6 +24,5 @@
 
 @property (nonatomic, assign) id<SSUIViewMiniMeDelegate> delegate;
 @property (nonatomic, strong) UIScrollView *scrollView;
-@property (assign) NSInteger ratio;
 -(SSUIViewMiniMe *)initWithView:(UIView *)viewToMap withRatio:(NSInteger)ratio;
 @end
