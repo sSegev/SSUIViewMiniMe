@@ -22,7 +22,7 @@
 
 @interface SSUIViewMiniMe : UIView <UIScrollViewDelegate>
 
-@property (nonatomic, assign) id<SSUIViewMiniMeDelegate> delegate;
+@property (nonatomic, weak) id<SSUIViewMiniMeDelegate> delegate;
 @property (nonatomic, strong) UIScrollView *scrollView;
 -(SSUIViewMiniMe *)initWithView:(UIView *)viewToMap withRatio:(NSInteger)ratio;
 @end
